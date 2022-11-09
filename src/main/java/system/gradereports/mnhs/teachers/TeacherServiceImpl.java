@@ -52,13 +52,12 @@ public class TeacherServiceImpl implements ITeacherService{
     public ResponseEntity<Object> setDepartment(HashMap<String, Object> data) {
         HashMap<String, Object> response = new HashMap<>();
 
-        String departmentName = data.get("departmentName").toString();
+        String departmentName = data.get("departmentName").toString().toUpperCase();
         String teacherId = data.get("teacherId").toString();
 
         Teacher teacher = teacherRepository.getTeacherById(Long.parseLong(teacherId));
         Department department = departmentService.getDepartmentByName(departmentName);
         teacher.setDepartment(department);
-
 
         teacherRepository.save(teacher);
 
