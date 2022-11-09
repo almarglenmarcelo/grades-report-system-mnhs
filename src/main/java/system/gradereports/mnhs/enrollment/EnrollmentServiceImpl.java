@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import system.gradereports.mnhs.contactnumbers.Contact;
+import system.gradereports.mnhs.contactnumbers.IContactService;
 import system.gradereports.mnhs.ethnicgroups.EthnicGroup;
 import system.gradereports.mnhs.ethnicgroups.IEthnicGroupService;
 import system.gradereports.mnhs.grade7sections.Grade7Section;
@@ -35,8 +37,8 @@ public class EnrollmentServiceImpl implements  IEnrollmentService{
     private IGrade7SectionService grade7SectionService;
     private IAddressService addressService;
     private IParentService parentService;
-
     private IGuardianService guardianService;
+    private IContactService contactService;
 
     @Override
     public ResponseEntity<Object> enrollStudentAsGrade7(HashMap<String, Object> data) {
@@ -75,7 +77,7 @@ public class EnrollmentServiceImpl implements  IEnrollmentService{
         String guardianMiddleName = data.get("guardianMiddleName").toString();
         String guardianLastName = data.get("guardianLastName").toString();
         String relationship = data.get("relationship").toString();
-
+        String contactNumber = data.get("contactNumber").toString();
 
         // Other Details
         String enteredEthnicGroup = data.get("ethnicGroup").toString();
@@ -142,12 +144,16 @@ public class EnrollmentServiceImpl implements  IEnrollmentService{
         guardian.addStudent(newStudent);
         newStudent.setGuardian(guardian);
 
+        // Instantiate Contact number
+        Contact contact = new Contact(guardian, contactNumber);
 
+        contactService.addContactNumber(contact);
         studentService.addGrade7Student(newStudent);
         addressService.addAddress(newAddress);
         parentService.addParent(father);
         parentService.addParent(mother);
         guardianService.addGuardian(guardian);
+
         response.put("result", "grade7_enrolled_successfully");
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }

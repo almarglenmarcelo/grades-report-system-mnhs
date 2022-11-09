@@ -3,6 +3,7 @@ package system.gradereports.mnhs.guardians;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import system.gradereports.mnhs.contactnumbers.Contact;
 import system.gradereports.mnhs.students.Student;
 
 import javax.persistence.*;
@@ -30,6 +31,9 @@ public class Guardian {
     @OneToMany(mappedBy = "guardian")
     @JsonIgnore
     private List<Student> students;
+    @OneToMany(mappedBy = "guardian", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Contact> contactNumbers;
 
     public Guardian(String firstName, String middleName, String lastName, String relationship) {
         this.firstName = firstName.toUpperCase();
@@ -42,7 +46,13 @@ public class Guardian {
         if(students == null) {
             students = new ArrayList<>();
         }
-
         students.add(student);
+    }
+    public void addContactNumber(Contact contact){
+        if(contactNumbers == null) {
+            contactNumbers = new ArrayList<>();
+        }
+
+        contactNumbers.add(contact);
     }
 }

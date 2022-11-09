@@ -1,5 +1,4 @@
-package system.gradereports.mnhs.guardians;
-
+package system.gradereports.mnhs.contactnumbers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,11 +10,15 @@ import javax.transaction.Transactional;
 @Service
 @Transactional
 @AllArgsConstructor
-public class GuardianServiceImpl implements  IGuardianService{
-    private IGuardianRepository guardianRepository;
+public class ContactServiceImpl implements IContactService{
+
+    private IContactRepository contactRepository;
+
+
     @Override
-    public ResponseEntity<Object> addGuardian(Guardian guardian) {
-        guardianRepository.save(guardian);
+    public ResponseEntity<Object> addContactNumber(Contact contact) {
+        contactRepository.save(contact);
+
         return ResponseEntity.ok(HttpStatus.CREATED);
     }
 }

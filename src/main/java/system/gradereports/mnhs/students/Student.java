@@ -3,6 +3,7 @@ package system.gradereports.mnhs.students;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import system.gradereports.mnhs.MnhsUserRoles;
 import system.gradereports.mnhs.ethnicgroups.EthnicGroup;
 import system.gradereports.mnhs.grade10sections.Grade10Section;
 import system.gradereports.mnhs.grade7sections.Grade7Section;
@@ -41,6 +42,8 @@ public class Student {
     private Integer ageAsOfFirstFridayJune;
     private String motherTongue;
 
+    private String role;
+
     @OneToOne(mappedBy = "student")
     private Address address;
 
@@ -72,52 +75,37 @@ public class Student {
             inverseJoinColumns = @JoinColumn(name="parent_id"))
     private List<Parent> parents;
 
-
-    //    As Student Only
-    public Student(String lrn, String firstName, String middleName, String lastName, String nameExtension, Boolean isMale, String birthdate, Integer ageAsOfFirstFridayJune, String motherTongue, EthnicGroup ethnicGroup, Religion religion) {
-        this.lrn = lrn;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
-        this.nameExtension = (nameExtension.isEmpty())? null: nameExtension;
-        this.isMale = isMale;
-        this.birthdate = LocalDate.parse(birthdate);
-        this.ageAsOfFirstFridayJune = ageAsOfFirstFridayJune;
-        this.motherTongue = motherTongue;
-        this.ethnicGroup = ethnicGroup;
-        this.religion = religion;
-    }
-
-
     //   As Grade 7 Student
     public Student(String lrn, String firstName, String middleName, String lastName, String nameExtension, Boolean isMale, String birthdate, Integer ageAsOfFirstFridayJune, String motherTongue, EthnicGroup ethnicGroup, Religion religion, Grade7Section grade7Section) {
         this.lrn = lrn;
-        this.firstName = firstName;
-        this.middleName = (middleName.isEmpty())? null: middleName;
-        this.lastName = lastName;
-        this.nameExtension = (nameExtension.isEmpty())? null: nameExtension;
+        this.firstName = firstName.toUpperCase();
+        this.middleName = (middleName.isEmpty())? null: middleName.toUpperCase();
+        this.lastName = lastName.toUpperCase();
+        this.nameExtension = (nameExtension.isEmpty())? null: nameExtension.toUpperCase();
         this.isMale = isMale;
         this.birthdate = LocalDate.parse(birthdate);
         this.ageAsOfFirstFridayJune = ageAsOfFirstFridayJune;
-        this.motherTongue = motherTongue;
+        this.motherTongue = motherTongue.toUpperCase();
         this.ethnicGroup = ethnicGroup;
         this.religion = religion;
+        this.role = MnhsUserRoles.STUDENT.toString();
         this.grade7Section = grade7Section;
     }
 
     //    As Grade 8 Student
     public Student(String lrn, String firstName, String middleName, String lastName, String nameExtension, Boolean isMale, String birthdate, Integer ageAsOfFirstFridayJune, String motherTongue, EthnicGroup ethnicGroup, Religion religion, Grade7Section grade7Section, Grade8Section grade8Section) {
         this.lrn = lrn;
-        this.firstName = firstName;
-        this.middleName = (middleName.isEmpty())? null: middleName;
+        this.firstName = firstName.toUpperCase();
+        this.middleName = (middleName.isEmpty())? null: middleName.toUpperCase();
         this.lastName = lastName;
-        this.nameExtension = (nameExtension.isEmpty())? null: nameExtension;
+        this.nameExtension = (nameExtension.isEmpty())? null: nameExtension.toUpperCase();
         this.isMale = isMale;
         this.birthdate = LocalDate.parse(birthdate);
         this.ageAsOfFirstFridayJune = ageAsOfFirstFridayJune;
-        this.motherTongue = motherTongue;
+        this.motherTongue = motherTongue.toUpperCase();
         this.ethnicGroup = ethnicGroup;
         this.religion = religion;
+        this.role = MnhsUserRoles.STUDENT.toString();
         this.grade7Section = grade7Section;
         this.grade8Section = grade8Section;
     }
@@ -125,16 +113,17 @@ public class Student {
     //    As Grade 9 Student
     public Student(String lrn, String firstName, String middleName, String lastName, String nameExtension, Boolean isMale, String birthdate, Integer ageAsOfFirstFridayJune, String motherTongue, EthnicGroup ethnicGroup, Religion religion, Grade7Section grade7Section, Grade8Section grade8Section, Grade9Section grade9Section) {
         this.lrn = lrn;
-        this.firstName = firstName;
-        this.middleName = (middleName.isEmpty())? null: middleName;
-        this.lastName = lastName;
-        this.nameExtension = (nameExtension.isEmpty())? null: nameExtension;
+        this.firstName = firstName.toUpperCase();
+        this.middleName = (middleName.isEmpty())? null: middleName.toUpperCase();
+        this.lastName = lastName.toUpperCase();
+        this.nameExtension = (nameExtension.isEmpty())? null: nameExtension.toUpperCase();
         this.isMale = isMale;
         this.birthdate = LocalDate.parse(birthdate);;
         this.ageAsOfFirstFridayJune = ageAsOfFirstFridayJune;
-        this.motherTongue = motherTongue;
+        this.motherTongue = motherTongue.toUpperCase();
         this.ethnicGroup = ethnicGroup;
         this.religion = religion;
+        this.role = MnhsUserRoles.STUDENT.toString();
         this.grade7Section = grade7Section;
         this.grade8Section = grade8Section;
         this.grade9Section = grade9Section;
@@ -143,16 +132,17 @@ public class Student {
     //  As Grade 10 Student
     public Student(String lrn, String firstName, String middleName, String lastName, String nameExtension, Boolean isMale, LocalDate birthdate, Integer ageAsOfFirstFridayJune, String motherTongue, EthnicGroup ethnicGroup, Religion religion, Grade7Section grade7Section, Grade8Section grade8Section, Grade9Section grade9Section, Grade10Section grade10Section) {
         this.lrn = lrn;
-        this.firstName = firstName;
-        this.middleName = (middleName.isEmpty())? null: middleName;
-        this.lastName = lastName;
-        this.nameExtension = (nameExtension.isEmpty())? null: nameExtension;
+        this.firstName = firstName.toUpperCase();
+        this.middleName = (middleName.isEmpty())? null: middleName.toUpperCase();
+        this.lastName = lastName.toUpperCase();
+        this.nameExtension = (nameExtension.isEmpty())? null: nameExtension.toUpperCase();
         this.isMale = isMale;
         this.birthdate = birthdate;
         this.ageAsOfFirstFridayJune = ageAsOfFirstFridayJune;
-        this.motherTongue = motherTongue;
+        this.motherTongue = motherTongue.toUpperCase();
         this.ethnicGroup = ethnicGroup;
         this.religion = religion;
+        this.role = MnhsUserRoles.STUDENT.toString();
         this.grade7Section = grade7Section;
         this.grade8Section = grade8Section;
         this.grade9Section = grade9Section;
