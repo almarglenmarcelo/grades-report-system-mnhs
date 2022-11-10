@@ -4,6 +4,7 @@ package system.gradereports.mnhs.grade8sections;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import system.gradereports.mnhs.students.Student;
+import system.gradereports.mnhs.teachers.Teacher;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -23,14 +24,15 @@ public class Grade8Section {
     @Column
     private Long id;
     private String name;
-
     @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "grade8Section")
     @JsonIgnore
     private List<Student> students;
-    public Grade8Section(String name) {
-        this.name = name.toUpperCase();
-    }
 
+
+
+    public Grade8Section(String name) {
+        this.name = name.trim().toUpperCase();
+    }
 
     public void addStudent(Student student){
         if(students == null) {
@@ -38,4 +40,5 @@ public class Grade8Section {
         }
         students.add(student);
     }
+
 }

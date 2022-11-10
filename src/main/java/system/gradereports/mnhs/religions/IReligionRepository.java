@@ -12,4 +12,6 @@ public interface IReligionRepository extends JpaRepository<Religion, Long> {
 
     @Query(value = "SELECT * FROM religions ORDER BY id DESC LIMIT 1", nativeQuery = true)
     Religion getLatestRecord();
+
+
 }

@@ -2,10 +2,7 @@ package system.gradereports.mnhs.teachers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import system.gradereports.mnhs.departments.Department;
 
 import java.util.HashMap;
@@ -20,10 +17,13 @@ public class TeacherController {
     public ResponseEntity<Object> addTeacher(@RequestBody HashMap<String, Object> data){
         return teacherService.addTeacher(data);
     }
-
     @PostMapping("/department")
     public ResponseEntity<Object> setDepartment(@RequestBody HashMap<String, Object> data){
         return teacherService.setDepartment(data);
+    }
+    @GetMapping
+    public ResponseEntity<Object> getAllTeachers(){
+        return teacherService.getAllTeachers();
     }
 
 }

@@ -2,6 +2,7 @@ package system.gradereports.mnhs.parents;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import system.gradereports.mnhs.forms.form1.Form1;
 import system.gradereports.mnhs.students.Student;
 
 import javax.persistence.*;
@@ -21,15 +22,10 @@ public class Parent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String firstName;
-
     private String middleName = null;
-
     private String lastName;
-
     private Boolean isMale;
-
 
     @JsonIgnore
     @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
@@ -40,19 +36,16 @@ public class Parent {
 
 
     public Parent(String firstName, String middleName, String lastName, Boolean isMale) {
-        this.firstName = firstName.toUpperCase();
-        this.middleName = middleName.toUpperCase();
-        this.lastName = lastName.toUpperCase();
+        this.firstName = firstName.trim().toUpperCase();
+        this.middleName = middleName.trim().toUpperCase();
+        this.lastName = lastName.trim().toUpperCase();
         this.isMale = isMale;
-
     }
-
 
     public void addChild(Student student){
         if(students == null) {
             students = new ArrayList<>();
         }
-
         students.add(student);
     }
 }

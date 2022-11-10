@@ -28,7 +28,7 @@ public class Department {
     private List<Teacher> teachers;
 
     public Department(String name) {
-        this.name = name.toUpperCase();
+        this.name = name.trim().toUpperCase();
     }
 
     public void addTeachers(Teacher teacher){

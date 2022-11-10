@@ -16,11 +16,20 @@ public class DepartmentServiceImpl implements IDepartmentService{
     private IDepartmentRepository departmentRepository;
     @Override
     public ResponseEntity<Object> addDepartment(HashMap<String, Object> data) {
+        HashMap<String, Object> response = new HashMap<>();
         String departmentName = data.get("departmentName").toString();
         Department department = new Department(departmentName);
 
+        Department priorDepartment = departmentRepository.findDepartmentByName(departmentName);
+
+        if(priorDepartment != null) {
+            response.put("result", "department_already_exists");
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
+
         departmentRepository.save(department);
-        return ResponseEntity.ok(HttpStatus.CREATED);
+        response.put("result", "new_department_added");
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @Override

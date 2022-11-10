@@ -17,9 +17,12 @@ public class AddressServiceImpl implements IAddressService{
 
     @Override
     public ResponseEntity<Object> addAddress(Address address) {
-
         addressRepository.save(address);
-
         return ResponseEntity.ok(HttpStatus.CREATED);
+    }
+    @Override
+    public Address getAddressByStudentId(Long studentId) {
+        Address priorAddress = addressRepository.findAddressByStudentId(studentId);
+        return priorAddress;
     }
 }

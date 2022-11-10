@@ -4,6 +4,7 @@ package system.gradereports.mnhs.enrollment;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import system.gradereports.mnhs.contactnumbers.Contact;
 import system.gradereports.mnhs.contactnumbers.IContactService;
@@ -24,7 +25,6 @@ import system.gradereports.mnhs.students.Student;
 
 import javax.transaction.Transactional;
 import java.util.HashMap;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -41,6 +41,7 @@ public class EnrollmentServiceImpl implements  IEnrollmentService{
     private IContactService contactService;
 
     @Override
+    @Async
     public ResponseEntity<Object> enrollStudentAsGrade7(HashMap<String, Object> data) {
         HashMap<String, Object> response = new HashMap<>();
 

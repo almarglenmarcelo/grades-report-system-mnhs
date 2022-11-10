@@ -8,5 +8,6 @@ public interface IAddressService {
 
     ResponseEntity<Object> addAddress(Address address);
 
+    Address getAddressByStudentId(Long studentId);
 
 }

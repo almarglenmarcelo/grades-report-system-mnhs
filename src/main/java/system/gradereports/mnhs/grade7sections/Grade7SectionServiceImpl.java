@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.Optional;
@@ -22,13 +21,17 @@ public class Grade7SectionServiceImpl implements IGrade7SectionService{
     public ResponseEntity<Object> addSection(HashMap<String, Object> data) {
         HashMap<String, Object> response = new HashMap<>();
         String sectionName = data.get("name").toString().toUpperCase();
-
-
         Grade7Section grade7Section = new Grade7Section(sectionName);
+
+        Grade7Section priorGrade7Section = grade7SectionsRepository.getSectionByName(sectionName);
+
+        if(priorGrade7Section != null) {
+            response.put("result","grade7_section_already_exists");
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
+
         grade7SectionsRepository.save(grade7Section);
-
         response.put("result","grade7_section_added");
-
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 

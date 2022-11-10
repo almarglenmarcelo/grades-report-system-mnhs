@@ -20,8 +20,14 @@ public class EthnicGroupServiceImpl implements  IEthnicGroupService{
     public ResponseEntity<Object> addEthnicGroup(HashMap<String, Object> data) {
         HashMap<String, Object> response = new HashMap<>();
         String ethnicGroupName = data.get("name").toString();
-
         EthnicGroup ethnicGroup = new EthnicGroup(ethnicGroupName);
+
+        EthnicGroup priorEthnicGroup = ethnicGroupRepository.findEthnicGroupByName(ethnicGroupName);
+
+        if(priorEthnicGroup != null) {
+            response.put("result", "ethnic_group_already_exists");
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
 
         ethnicGroupRepository.save(ethnicGroup);
         response.put("result", "ethnic_group_added");

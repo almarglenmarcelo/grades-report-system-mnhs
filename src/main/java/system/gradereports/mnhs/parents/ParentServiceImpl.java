@@ -19,4 +19,14 @@ public class ParentServiceImpl implements IParentService{
         parentRepository.save(parent);
         return ResponseEntity.ok(HttpStatus.CREATED);
     }
+
+    @Override
+    public Parent findFatherParentByStudentId(Long studentId) {
+        return parentRepository.findFatherParentByStudentId(studentId);
+    }
+
+    @Override
+    public Parent findMotherParentByStudentId(Long studentId) {
+        return parentRepository.findMotherParentByStudentId(studentId);
+    }
 }

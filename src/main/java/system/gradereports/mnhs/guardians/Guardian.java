@@ -36,10 +36,10 @@ public class Guardian {
     private List<Contact> contactNumbers;
 
     public Guardian(String firstName, String middleName, String lastName, String relationship) {
-        this.firstName = firstName.toUpperCase();
-        this.middleName = middleName.toUpperCase();
-        this.lastName = lastName.toUpperCase();
-        this.relationship = relationship.toUpperCase();
+        this.firstName = firstName.trim().toUpperCase();
+        this.middleName = middleName.trim().toUpperCase();
+        this.lastName = lastName.trim().toUpperCase();
+        this.relationship = relationship.trim().toUpperCase();
     }
 
     public void addStudent(Student student){

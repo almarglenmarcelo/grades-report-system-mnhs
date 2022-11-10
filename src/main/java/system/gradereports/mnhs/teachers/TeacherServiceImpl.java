@@ -49,6 +49,11 @@ public class TeacherServiceImpl implements ITeacherService{
     }
 
     @Override
+    public ResponseEntity<Object> getAllTeachers() {
+        return new ResponseEntity<>(teacherRepository.findAll(), HttpStatus.OK);
+    }
+
+    @Override
     public ResponseEntity<Object> setDepartment(HashMap<String, Object> data) {
         HashMap<String, Object> response = new HashMap<>();
 

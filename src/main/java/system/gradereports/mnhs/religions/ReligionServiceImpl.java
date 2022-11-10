@@ -22,12 +22,17 @@ public class ReligionServiceImpl implements IReligionService{
         HashMap<String, Object> response = new HashMap<>();
 
         String religionName = data.get("name").toString();
-
         Religion religion = new Religion(religionName);
 
-        religionRepository.save(religion);
-        response.put("result", "religion_added");
+        Religion priorReligion = religionRepository.findReligionByName(religionName);
 
+        if(priorReligion != null) {
+            response.put("result", "religion_already_exists");
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
+        religionRepository.save(religion);
+
+        response.put("result", "religion_added");
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
@@ -38,6 +43,7 @@ public class ReligionServiceImpl implements IReligionService{
 
         return ResponseEntity.ok(HttpStatus.CREATED);
     }
+
     @Override
     public Religion getLatestRecord() {
         return religionRepository.getLatestRecord();

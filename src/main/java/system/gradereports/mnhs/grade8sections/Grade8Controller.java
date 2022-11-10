@@ -4,6 +4,7 @@ package system.gradereports.mnhs.grade8sections;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import system.gradereports.mnhs.grade7sections.IGrade7SectionService;
 
 import java.util.HashMap;
 
@@ -23,6 +24,7 @@ public class Grade8Controller {
     public ResponseEntity<Object> getAllSections(){
         return grade8SectionService.getAllSections();
     }
+
 
 
 }

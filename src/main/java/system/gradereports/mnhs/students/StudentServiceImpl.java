@@ -6,12 +6,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import system.gradereports.mnhs.ethnicgroups.EthnicGroup;
-import system.gradereports.mnhs.grade7sections.Grade7Section;
-import system.gradereports.mnhs.religions.Religion;
+import system.gradereports.mnhs.forms.form1.Form1;
+import system.gradereports.mnhs.forms.form1.IForm1Service;
+import system.gradereports.mnhs.guardians.Guardian;
+import system.gradereports.mnhs.parents.IParentService;
+import system.gradereports.mnhs.parents.Parent;
+import system.gradereports.mnhs.student_addresses.Address;
+import system.gradereports.mnhs.student_addresses.IAddressService;
 
-
-import java.time.LocalDate;
 import java.util.HashMap;
 
 @Service
@@ -20,6 +22,10 @@ import java.util.HashMap;
 public class StudentServiceImpl implements IStudentService{
 
     private IStudentRepository studentRepository;
+    private IForm1Service form1Service;
+    private IAddressService addressService;
+
+    private IParentService parentService;
 
     @Override
     public ResponseEntity<Object> addGrade7Student(Student theStudent) {
@@ -32,5 +38,36 @@ public class StudentServiceImpl implements IStudentService{
     @Override
     public Student findStudentByLrn(String lrn) {
         return studentRepository.findPriorStudent(lrn);
+    }
+
+    @Override
+    public ResponseEntity<Object> generateForm1(Form1 form1) {
+        HashMap<String, Object> response = new HashMap<>();
+        form1Service.insertNewForm1(form1);
+
+        response.put("result","form_1_created_successfully");
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @Override
+    public void prepareDetails(HashMap<String, Object> data) {
+
+        Long studentId = Long.parseLong(data.get("studentId").toString());
+        String schoolYear = data.get("schoolYear").toString();
+        String remarks = data.get("remarks").toString();
+
+//        Get Student
+        Student priorStudent = studentRepository.findById(studentId).get();
+//        Get Address
+        Address priorAddress = addressService.getAddressByStudentId(studentId);
+//        Get Guardian
+        Guardian guardian = studentRepository.getGuardianByStudentId(studentId);
+//        Get Parent - Father ID
+        Parent father = parentService.findFatherParentByStudentId(studentId);
+//        Get Parent - Mother Id
+        Parent mother = parentService.findMotherParentByStudentId(studentId);
+
+        Form1 newForm = new Form1(priorStudent, priorAddress, father, mother, guardian, schoolYear, remarks);
+        generateForm1(newForm);
     }
 }

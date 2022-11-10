@@ -23,13 +23,13 @@ public class Grade7Section {
     @Column
     private Long id;
     private String name;
-
     @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "grade7Section")
     @JsonIgnore
     private List<Student> students;
 
+
     public Grade7Section(String name) {
-        this.name = name.toUpperCase();
+        this.name = name.trim().toUpperCase();
     }
 
     public void addStudent(Student student){
@@ -38,4 +38,5 @@ public class Grade7Section {
         }
         students.add(student);
     }
+
 }

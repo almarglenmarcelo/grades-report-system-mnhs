@@ -28,7 +28,7 @@ public class EthnicGroup {
     @JsonIgnore
     private List<Student> students;
     public EthnicGroup(String name) {
-        this.name = name.toUpperCase();
+        this.name = name.trim().toUpperCase();
     }
 
     public void addStudent(Student theStudent){

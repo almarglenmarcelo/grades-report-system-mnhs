@@ -27,7 +27,7 @@ public class Religion {
     private List<Student> students;
 
     public Religion(String name) {
-        this.name = name.toUpperCase();
+        this.name = name.trim().toUpperCase();
     }
 
     public void addStudent(Student theStudent){
