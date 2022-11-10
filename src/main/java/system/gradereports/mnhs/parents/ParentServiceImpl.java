@@ -21,12 +21,12 @@ public class ParentServiceImpl implements IParentService{
     }
 
     @Override
-    public Parent findFatherParentByStudentId(Long studentId) {
+    public String findFatherParentByStudentId(Long studentId) {
         return parentRepository.findFatherParentByStudentId(studentId);
     }
 
     @Override
-    public Parent findMotherParentByStudentId(Long studentId) {
+    public String findMotherParentByStudentId(Long studentId) {
         return parentRepository.findMotherParentByStudentId(studentId);
     }
 }

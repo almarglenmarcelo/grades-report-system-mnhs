@@ -11,9 +11,11 @@ import system.gradereports.mnhs.forms.form1.IForm1Service;
 import system.gradereports.mnhs.guardians.Guardian;
 import system.gradereports.mnhs.parents.IParentService;
 import system.gradereports.mnhs.parents.Parent;
+import system.gradereports.mnhs.parents.ParentRepository;
 import system.gradereports.mnhs.student_addresses.Address;
 import system.gradereports.mnhs.student_addresses.IAddressService;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 @Service
@@ -24,9 +26,11 @@ public class StudentServiceImpl implements IStudentService{
     private IStudentRepository studentRepository;
     private IForm1Service form1Service;
     private IAddressService addressService;
-
     private IParentService parentService;
 
+
+//    Remove After
+    private ParentRepository parentRepository;
     @Override
     public ResponseEntity<Object> addGrade7Student(Student theStudent) {
 
@@ -58,16 +62,40 @@ public class StudentServiceImpl implements IStudentService{
 
 //        Get Student
         Student priorStudent = studentRepository.findById(studentId).get();
+
 //        Get Address
         Address priorAddress = addressService.getAddressByStudentId(studentId);
+
 //        Get Guardian
-        Guardian guardian = studentRepository.getGuardianByStudentId(studentId);
-//        Get Parent - Father ID
-        Parent father = parentService.findFatherParentByStudentId(studentId);
+        String[] guardianDetails = studentRepository.getGuardianByStudentId(studentId).split(",");
+        Long guardianId = Long.parseLong(guardianDetails[0]);
+        String firstName = guardianDetails[1].trim();
+        String middleName = guardianDetails[2].trim();
+        String lastName = guardianDetails[3].trim();
+        String relationship = guardianDetails[4].trim();
+        Guardian guardian = new Guardian(guardianId, firstName, middleName, lastName, relationship);
+
+        //        Get Parent - Father ID
+        String[] fatherDetails = parentService.findFatherParentByStudentId(studentId).split(",");
+        Parent father = parseParent(fatherDetails);
+
 //        Get Parent - Mother Id
-        Parent mother = parentService.findMotherParentByStudentId(studentId);
+        String[] motherDetails = parentService.findMotherParentByStudentId(studentId).split(",");
+        Parent mother = parseParent(motherDetails);
 
         Form1 newForm = new Form1(priorStudent, priorAddress, father, mother, guardian, schoolYear, remarks);
         generateForm1(newForm);
+    }
+
+    public Parent parseParent(String[] priorParentDetails){
+
+        String[] parentDetails = priorParentDetails;
+        Long parentId = Long.parseLong(parentDetails[0]);
+        String parentFirstName = parentDetails[1].trim();
+        String parentMiddleName = parentDetails[2].trim();
+        String parentLastName = parentDetails[3].trim();
+        Parent parent = new Parent(parentId, parentFirstName, parentMiddleName,parentLastName);
+
+        return parent;
     }
 }

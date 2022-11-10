@@ -35,6 +35,13 @@ public class Parent {
     private List<Student> students;
 
 
+    public Parent(Long id, String firstName, String middleName, String lastName) {
+        this.id = id;
+        this.firstName = firstName.trim().toUpperCase();;
+        this.middleName = middleName.trim().toUpperCase();;
+        this.lastName = lastName.trim().toUpperCase();;
+    }
+
     public Parent(String firstName, String middleName, String lastName, Boolean isMale) {
         this.firstName = firstName.trim().toUpperCase();
         this.middleName = middleName.trim().toUpperCase();

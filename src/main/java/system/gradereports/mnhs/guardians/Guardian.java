@@ -35,6 +35,16 @@ public class Guardian {
     @JsonIgnore
     private List<Contact> contactNumbers;
 
+
+    public Guardian(Long id, String firstName, String middleName, String lastName, String relationshi) {
+        this.id = id;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.relationship = relationship;
+        this.students = students;
+    }
+
     public Guardian(String firstName, String middleName, String lastName, String relationship) {
         this.firstName = firstName.trim().toUpperCase();
         this.middleName = middleName.trim().toUpperCase();

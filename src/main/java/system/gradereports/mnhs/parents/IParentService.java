@@ -6,8 +6,8 @@ public interface IParentService {
 
     ResponseEntity<Object> addParent(Parent parent);
 
-    Parent findFatherParentByStudentId(Long studentId);
+    String findFatherParentByStudentId(Long studentId);
 
-    Parent findMotherParentByStudentId(Long studentId);
+    String findMotherParentByStudentId(Long studentId);
 
 }

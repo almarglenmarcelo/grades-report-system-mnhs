@@ -1,6 +1,7 @@
 package system.gradereports.mnhs.students;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,9 +19,10 @@ public class StudentController {
 
 
     @PostMapping("/form1")
-    public ResponseEntity<Object> gatherInfo(@RequestBody HashMap<String, Object> data){
+    public ResponseEntity<Object> generateForm1(@RequestBody HashMap<String, Object> data){
 
-        return studentService.prepareDetails(data);
+        studentService.prepareDetails(data);
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
 }
