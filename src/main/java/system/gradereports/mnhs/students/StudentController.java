@@ -20,9 +20,6 @@ public class StudentController {
 
     @PostMapping("/form1")
     public ResponseEntity<Object> generateForm1(@RequestBody HashMap<String, Object> data){
-
-        studentService.prepareDetails(data);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return studentService.prepareDetails(data);
     }
-
 }

@@ -47,26 +47,27 @@ public class StudentServiceImpl implements IStudentService{
     @Override
     public ResponseEntity<Object> generateForm1(Form1 form1) {
         HashMap<String, Object> response = new HashMap<>();
-        form1Service.insertNewForm1(form1);
 
+        form1Service.insertNewForm1(form1);
         response.put("result","form_1_created_successfully");
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
-
     @Override
-    public void prepareDetails(HashMap<String, Object> data) {
-
+    public ResponseEntity<Object>  prepareDetails(HashMap<String, Object> data) {
+        HashMap<String, Object> response = new HashMap<>();
         Long studentId = Long.parseLong(data.get("studentId").toString());
         String schoolYear = data.get("schoolYear").toString();
         String remarks = data.get("remarks").toString();
 
-//        Get Student
-        Student priorStudent = studentRepository.findById(studentId).get();
+        Form1 priorForm1 = form1Service.checkDuplicateByStudentId(studentId);
+        if(priorForm1 != null){
+            response.put("result", "form_already_generated");
+            return new ResponseEntity<>(response, HttpStatus.NOT_ACCEPTABLE);
+        }
 
-//        Get Address
+        Student priorStudent = studentRepository.findById(studentId).get();
         Address priorAddress = addressService.getAddressByStudentId(studentId);
 
-//        Get Guardian
         String[] guardianDetails = studentRepository.getGuardianByStudentId(studentId).split(",");
         Long guardianId = Long.parseLong(guardianDetails[0]);
         String firstName = guardianDetails[1].trim();
@@ -75,16 +76,14 @@ public class StudentServiceImpl implements IStudentService{
         String relationship = guardianDetails[4].trim();
         Guardian guardian = new Guardian(guardianId, firstName, middleName, lastName, relationship);
 
-        //        Get Parent - Father ID
         String[] fatherDetails = parentService.findFatherParentByStudentId(studentId).split(",");
         Parent father = parseParent(fatherDetails);
 
-//        Get Parent - Mother Id
         String[] motherDetails = parentService.findMotherParentByStudentId(studentId).split(",");
         Parent mother = parseParent(motherDetails);
 
         Form1 newForm = new Form1(priorStudent, priorAddress, father, mother, guardian, schoolYear, remarks);
-        generateForm1(newForm);
+        return generateForm1(newForm);
     }
 
     public Parent parseParent(String[] priorParentDetails){

@@ -9,5 +9,7 @@ public interface IForm1Service {
 
     ResponseEntity<Object> getAllForm1();
 
+    Form1 checkDuplicateByStudentId(Long studentId);
+
 
 }

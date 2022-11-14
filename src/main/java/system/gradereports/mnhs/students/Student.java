@@ -1,10 +1,12 @@
 package system.gradereports.mnhs.students;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import system.gradereports.mnhs.MnhsUserRoles;
 import system.gradereports.mnhs.ethnicgroups.EthnicGroup;
 import system.gradereports.mnhs.forms.form1.Form1;
+import system.gradereports.mnhs.forms.quarterlyrating.first_quarter.FirstQuarter;
 import system.gradereports.mnhs.grade10sections.Grade10Section;
 import system.gradereports.mnhs.grade7sections.Grade7Section;
 import system.gradereports.mnhs.grade8sections.Grade8Section;
@@ -45,11 +47,18 @@ public class Student {
     @OneToOne(mappedBy = "student")
     private Form1 form1;
 
-
     // Address Entity
     @OneToOne(mappedBy = "student")
     private Address address;
 
+
+    //One-To-Many Relations
+    @OneToMany(mappedBy = "student")
+    @JsonIgnore
+    private List<FirstQuarter> firstQuarter;
+
+
+    // Many-To-One Relations
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "guardian_id")
     private Guardian guardian = null;
@@ -71,6 +80,9 @@ public class Student {
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "grade10_section")
     private Grade10Section grade10Section = null;
+
+
+    // Many-to-Many Relations
     @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinTable(name="parent_students",
             joinColumns = @JoinColumn(name="student_id"),

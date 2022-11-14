@@ -28,4 +28,9 @@ public class Form1ServiceImpl implements IForm1Service{
     public ResponseEntity<Object> getAllForm1() {
         return new ResponseEntity<>(form1Repository.findAll(), HttpStatus.OK);
     }
+
+    @Override
+    public Form1 checkDuplicateByStudentId(Long studentId) {
+        return form1Repository.findByStudentId(studentId);
+    }
 }

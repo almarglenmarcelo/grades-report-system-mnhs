@@ -10,5 +10,5 @@ public interface IStudentService {
     ResponseEntity<Object> addGrade7Student(Student student);
     Student findStudentByLrn(String lrn);
     ResponseEntity<Object> generateForm1(Form1 form1);
-    void prepareDetails(HashMap<String, Object> data);
+    ResponseEntity<Object> prepareDetails(HashMap<String, Object> data);
 }
