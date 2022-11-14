@@ -1,0 +1,967 @@
+{
+	"info": {
+		"_postman_id": "1d2d78d5-412f-4c52-a29a-baf384d8c582",
+		"name": "Grade Reports MNHS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23124965"
+	},
+	"item": [
+		{
+			"name": "Grade 7 Requests",
+			"item": [
+				{
+					"name": "Get All Grade 7 Section",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Perseverance\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/grade7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"grade7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Grade 7 Section",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"love \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/grade7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"grade7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Grade 8 Requests",
+			"item": [
+				{
+					"name": "Add Grade 8 Section",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"galatians\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/grade8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"grade8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Grade 8 Section",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Perseverance\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/grade8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"grade8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Grade 9 Requests",
+			"item": [
+				{
+					"name": "Add Grade 9 Section",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"jeremiah\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/grade9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"grade9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Grade 9 Section",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Perseverance\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/grade9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"grade9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Grade 10 Requests",
+			"item": [
+				{
+					"name": "Add Grade 10 Section",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"paUL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/grade10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"grade10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Grade 10 Section",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Perseverance\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/grade10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"grade10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ethnic Group Requests",
+			"item": [
+				{
+					"name": "Add Ethnic Group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Aeta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/ethnicGroups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ethnicGroups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ethnic Groups",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Aeta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/ethnicGroups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ethnicGroups"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Religion Requests",
+			"item": [
+				{
+					"name": "Add Religion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"iglesia ni cristo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/religions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"religions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Religions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Aeta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/religions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"religions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teachers Requests",
+			"item": [
+				{
+					"name": "Add Teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Almar Glen\",\r\n    \"middleName\": \"Ignacio\",\r\n    \"lastName\": \"Marcelo\",\r\n    \"departmentName\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Teachers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Almar Glen\",\r\n    \"middleName\": \"Ignacio\",\r\n    \"lastName\": \"Marcelo\",\r\n    \"departmentName\": \"mathematics\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Teachers a Department",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"departmentName\": \"TLE\",\r\n   \"teacherId\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/department",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"department"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Departments Requests",
+			"item": [
+				{
+					"name": "Add Departments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"departmentName\": \"TLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/departments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"departments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Grade 7 Advisory Requests",
+			"item": [
+				{
+					"name": "New Advisory Class",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"teacherId\": \"1\",\r\n    \"grade7SectionName\": \"love\",\r\n    \"schoolYear\": \"2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/grade7advisory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"grade7advisory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subject Requests",
+			"item": [
+				{
+					"name": "Add new Subject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subjectName\": \"Filipino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/subjects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Enrollment Requests",
+			"item": [
+				{
+					"name": "Enroll Grade 7 Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lrn\": \"10293243252\",\r\n    \"firstName\": \"Almar\",\r\n    \"middleName\": \"Ignacio\",\r\n    \"lastName\": \"Marcelo\",\r\n    \"nameExtension\": \"\",\r\n    \"isMale\": \"true\",\r\n    \"birthdate\": \"2000-07-28\",\r\n    \"ageAsOfFirstFridayJune\": \"22\",\r\n    \"motherTongue\": \"TAGALOG\",\r\n    \"ethnicGroup\": \"aeta\",\r\n    \"religion\": \"iglesia ni cristo\",\r\n    \"grade7Section\": \"love\",\r\n    \r\n    \"houseNumber\": \"83\",\r\n    \"street\": \"A. De Castro St\",\r\n    \"barangay\": \"Malinta\",\r\n    \"cityMunicipality\": \"Valenzuela\",\r\n    \"province\": \"\",\r\n\r\n    \"fatherFirstName\": \"Dragon\",\r\n    \"fatherMiddleName\": \"\",\r\n    \"fatherLastName\": \"Santos\",\r\n\r\n    \"motherFirstName\": \"Madonna\",\r\n    \"motherMiddleName\": \"Fernandez\",\r\n    \"motherLastName\": \"Marcelo\",\r\n    \r\n    \"guardianFirstName\": \"Elviera\",\r\n    \"guardianMiddleName\": \"Santillan\",\r\n    \"guardianLastName\": \"Marcelo\",\r\n    \"relationship\": \"Grandmother\",\r\n    \"contactNumber\": \"09267579410\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/enrollment/grade7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"enrollment",
+								"grade7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Form1 Requests",
+			"item": [
+				{
+					"name": "Generate Form1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": \"1\",\r\n    \"schoolYear\": \"2022\",\r\n    \"remarks\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/students/form1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"form1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quarterly Rating Requests",
+			"item": [
+				{
+					"name": "First Quarter",
+					"item": [
+						{
+							"name": "Insert 1st Grade",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"lrn\": \"10293243252\",\r\n    \"subjectName\": \"filipino\",\r\n    \"grade\": 85\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/quarters/first",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"quarters",
+										"first"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update 1st Quarter Grade",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"recordId\": 1,\r\n    \"lrn\": \"10293243252\",\r\n    \"subjectName\": \"filipino\",\r\n    \"grade\": 84\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/quarters/first",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"quarters",
+										"first"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Second Quarter",
+					"item": [
+						{
+							"name": "Insert 2nd Grade",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"lrn\": \"10293243252\",\r\n    \"subjectName\": \"filipino\",\r\n    \"grade\": 85\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/quarters/second",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"quarters",
+										"second"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update 2nd Quarter Grade",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"recordId\": 1,\r\n    \"lrn\": \"10293243252\",\r\n    \"subjectName\": \"filipino\",\r\n    \"grade\": 84\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/quarters/second",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"quarters",
+										"second"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Third Quarter",
+					"item": [
+						{
+							"name": "Insert 3rd Grade",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"lrn\": \"10293243252\",\r\n    \"subjectName\": \"filipino\",\r\n    \"grade\": 94\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/quarters/third",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"quarters",
+										"third"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update 3rd Quarter Grade",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"recordId\": 1,\r\n    \"lrn\": \"10293243252\",\r\n    \"subjectName\": \"filipino\",\r\n    \"grade\": 89\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/quarters/third",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"quarters",
+										"third"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Fourth Quarter",
+					"item": [
+						{
+							"name": "Insert 4th Grade",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"lrn\": \"10293243252\",\r\n    \"subjectName\": \"filipino\",\r\n    \"grade\": 78\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/quarters/fourth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"quarters",
+										"fourth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update 4thQuarter Grade",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"recordId\": 1,\r\n    \"lrn\": \"10293243252\",\r\n    \"subjectName\": \"filipino\",\r\n    \"grade\": 89\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/quarters/fourth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"quarters",
+										"fourth"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

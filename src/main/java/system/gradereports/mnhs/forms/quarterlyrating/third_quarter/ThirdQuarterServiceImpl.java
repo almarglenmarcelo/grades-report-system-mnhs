@@ -1,4 +1,4 @@
-package system.gradereports.mnhs.forms.quarterlyrating.second_quarter;
+package system.gradereports.mnhs.forms.quarterlyrating.third_quarter;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,8 +15,8 @@ import java.util.HashMap;
 @Service
 @Transactional
 @AllArgsConstructor
-public class SecondQuarterServiceImpl implements ISecondQuarterService {
-    private ISecondQuarterRepository secondQuarterRepository;
+public class ThirdQuarterServiceImpl implements IThirdQuarterService {
+    private IThirdQuarterRepository thirdQuarterRepository;
     private ISubjectService subjectService;
     private IStudentService studentService;
     private HashMap<String, Object> response;
@@ -31,27 +31,27 @@ public class SecondQuarterServiceImpl implements ISecondQuarterService {
         }
 
         Long grade = Long.parseLong(data.get("grade").toString());
-        SecondQuarter priorRecord = secondQuarterRepository.findPriorRecordByStudentIdAndSubjectId(priorStudent.getId(), priorSubject.getId());
+        ThirdQuarter priorRecord = thirdQuarterRepository.findPriorRecordByStudentIdAndSubjectId(priorStudent.getId(), priorSubject.getId());
         if(priorRecord != null) {
             response.put("result", "record_already_inserted");
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
         response = new HashMap<>();
-        response.put("result", "second_quarter_inserted");
-        secondQuarterRepository.save(new SecondQuarter(priorSubject, grade, priorStudent));
+        response.put("result", "third_quarter_inserted");
+        thirdQuarterRepository.save(new ThirdQuarter(priorSubject, grade, priorStudent));
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
     @Override
     public ResponseEntity<Object> updateGrade(HashMap<String, Object> data) {
         Long recordId = Long.parseLong(data.get("recordId").toString());
-        SecondQuarter priorRecord = secondQuarterRepository.findPriorRecord(recordId);
+        ThirdQuarter priorRecord = thirdQuarterRepository.findPriorRecord(recordId);
         Student priorStudent = studentService.findStudentByLrn(data.get("lrn").toString());
         Subject priorSubject = subjectService.findSubjectByName(data.get("subjectName").toString().toUpperCase());
         Long grade = Long.parseLong(data.get("grade").toString());
 
         response = new HashMap<>();
-        response.put("result", "second_quarter_updated");
-        secondQuarterRepository.save(new SecondQuarter(priorRecord ,priorSubject, grade, priorStudent));
+        response.put("result", "third_quarter_updated");
+        thirdQuarterRepository.save(new ThirdQuarter(priorRecord ,priorSubject, grade, priorStudent));
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 }
